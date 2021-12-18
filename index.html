@@ -12,8 +12,20 @@
 <body>
   <h1>Yatze</h1>
   <p>a game where no one realy knows how to play but you can surely try</p>
-  <div class="container">
-    <table class="resault">
+  <div class="main-container">
+    <div class="container">
+    <table class="dice-table">
+      <tr>
+        <td class="dice" id="dice1"></td>
+        <td class="dice" id="dice2"></td>
+        <td class="dice" id="dice3"></td>
+        <td class="dice" id="dice4"></td>
+        <td class="dice" id="dice5"></td>
+      </tr>
+    </table>
+    <button id="button1">Roll</button>
+  </div>
+    <table class="result">
       <tr>
         <td></td>
         <td>Player 1</td>
@@ -61,12 +73,12 @@
       </tr>
       <tr>
         <td>Three of a kind</td>
-        <td class= "player1" id="sum1"></td>
+        <td class= "player1-ofAKind" data-name="3"></td>
         <td id="sum2"></td>
       </tr>
       <tr>
         <td>Four of a kind</td>
-        <td class= "player1" id="sum1"></td>
+        <td class= "player1-ofAKind" data-name="4"></td>
         <td id="sum2"></td>
       </tr>
       <tr>
@@ -96,16 +108,7 @@
       <td id="sum2"></td>
       </tr>
     </table>
-    <table>
-      <tr>
-        <td class="dice" id="dice1"></td>
-        <td class="dice" id="dice2"></td>
-        <td class="dice" id="dice3"></td>
-        <td class="dice" id="dice4"></td>
-        <td class="dice" id="dice5"></td>
-      </tr>
-    </table>
-    <button id="button1">Roll</button>
+    
   </div>
   <script src="script.js"></script>
 </body>
