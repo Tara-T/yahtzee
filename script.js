@@ -26,6 +26,11 @@ function round() {
     button1.addEventListener("click", () => {
         diceDisplay();
         stopDice();
+        scoreSingles();
+        
+      //debugging
+      console.log(chance(getDice()))
+        console.log(scoreSingles());
         console.log(singles())
         console.log(largeStraight(getDice()))
          console.log(fullHouse(getDice()))
@@ -80,7 +85,6 @@ function singles(num) {
     let convertInt = arr.map((i) => Number(i));
 
     let sum = 0;
-    console.log(convertInt.length)
 
     for (let z = 0; z < convertInt.length; z++) {
         sum += convertInt[z];
@@ -124,24 +128,86 @@ function duplicatesCount(count, dice) {
   }
       
 function duplicatesCountClick() {
-    const player1ofAKind = document.querySelectorAll(".player1-ofAKind")
+    const player1ofAKind = document.querySelectorAll(".ofAKind")
     Array.from(player1ofAKind).forEach(function (el) {
         el.addEventListener("click", function() {
             el.innerHTML = duplicatesCount(el.getAttribute("data-name"), getDice())
         })
     });
 }
-//there is probably i way to combine this in to one but lets not
+//there is probably a way to combine this in to one but lets not
  
 function singlesClick() {
-    const player1Sigle = document.querySelectorAll(".player1-single")
-    Array.from(player1Sigle).forEach(function (single) {
+    const singlesTable = document.querySelectorAll(".single")
+    Array.from(singlesTable).forEach(function (single) {
         single.addEventListener("click", () => {
             single.innerHTML = singles(single.getAttribute("data-name"));
         })
     });
 }
 
+function scoreSingles() {
+ const player1 = document.querySelectorAll(".player1") // TODO: make for both players
+ 
+ let singleScoreP1 = 0;
+ let bonus = 0;
+ 
+Array.from(player1).forEach(function (el) {
+         
+singleScoreP1 += Number(el.innerHTML);})
+
+if (singleScoreP1 >= 65) {
+bonus = 30; //change to actual value
+}
+else {bonus = 0}
+
+console.log(bonus)
+
+return (singleScoreP1 + bonus);
+
+}
+function yahtzee(largeStraight){
+if (largeStraight = 40) {return 100}
+return 0;
+}
+
+function chance(dice) {
+
+let sum =0;
+
+Array.from(dice).forEach(function (die) {
+ sum += Number(die);
+ console.log(die)
+})
+return sum;
+
+
+}
+
+
+
+
+function totalScore(singleScore, ofAKindScore, chance, yahtzee) {
+
+let total = 0;
+
+total = singleScore + ofAKindScore + chance + yahtzee;
+
+return total;
+
+}
+
+function game(){
+for (let i = 0,i < 14, i++) {
+
+
+
+}
+
+}
+
+
+scoreSingles()
 duplicatesCountClick() 
 round()
 singlesClick()
